@@ -16,7 +16,7 @@ class IncomeExpenseCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: data.label == "Income" ? Color(0xFF65d5ca):Color(0xFFf28080),
+        color: data.label == "Income" ? Colors.green.withValues(alpha: 0.6):Colors.red.withValues(alpha: 0.6),
         borderRadius: BorderRadius.circular(10),
       ),
       //     alignment: Alignment.center,
@@ -26,13 +26,15 @@ class IncomeExpenseCard extends StatelessWidget {
           Expanded(
              child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(data.label,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
-                Text("\u20B9 ${data.amount}",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 24))],
+          
+              children: [Text(data.label,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text("\u20B9 ${data.amount}",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 24)))],
             ),
           ),
           Icon(data.icon, color: Colors.white,),
-        ],
+      ],
       ),
     );
   }
